@@ -74,8 +74,15 @@ U32 GPIO_DMACTL_R;
 //NVIC
 #define NVIC_ENABLE_BASE_ADDRESS         0xE000E100
 #define NVIC_PRI_BASE_ADDRESS            0xE000E400
+#define APINT                            (*((volatile U32*)0xE000ED0C))
 
-#define APINT                            *((volatile U32*)0xE000ED0C)
+// SYSTICK
+#define NVIC_ACTLR_R                     (*((volatile U32*)0xE000E008))
+#define NVIC_ST_CTRL_R                   (*((volatile U32*)0xE000E010))
+#define NVIC_ST_RELOAD_R                 (*((volatile U32*)0xE000E014))
+#define NVIC_ST_CURRENT_R                (*((volatile U32*)0xE000E018))
+
+
 
 //TIMER0
 #define TIMER0_CFG_R            (*((volatile U32*)0x40030000))
