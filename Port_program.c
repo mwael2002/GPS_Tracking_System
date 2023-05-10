@@ -81,6 +81,7 @@ void Port_init(void){
 
 				set_bit(Port_Address->GPIO_DEN_R ,Pin_Id);
 				
+				
         /* enable Dio */
         if(PortConfigArr[Pin_count].Mode == Pin_Mode_Dio){
             clear_bit(Port_Address->GPIO_AFSEL_R ,Pin_Id);
@@ -95,54 +96,13 @@ void Port_init(void){
             Port_Address->GPIO_PCTL_R |= (PortConfigArr[Pin_count].Mode << (Pin_Id*4) );
         }
 				
-				
-				/**enable ADC**/
+				/**analog & digital configuration**/
         if(PortConfigArr[Pin_count].Mode == Pin_Mode_AIN ){
             /* disable digital */
             clear_bit(Port_Address->GPIO_DEN_R,Pin_Id);
             /* enable ADC */
             set_bit(Port_Address->GPIO_ADCCTL_R,Pin_Id);
         }
-        
-				
-				
-				
-				/* set Interrupt configuration */
-        if(PortConfigArr[Pin_count].Interrupt == Pin_IntDisable){
-            clear_bit(Port_Address->GPIO_IM_R,Pin_Id);
-        }
-				
-				
-        else{
-					clear_bit(Port_Address->GPIO_IM_R,Pin_Id);
-					
-					
-					if(PortConfigArr[Pin_count].Interrupt == Pin_IntFallingEdge){
-						    clear_bit(Port_Address->GPIO_IS_R,Pin_Id);	  
-                clear_bit(Port_Address->GPIO_IEV_R,Pin_Id);
-            }
-            else if(PortConfigArr[Pin_count].Interrupt == Pin_IntRisingEdge){
-                 clear_bit(Port_Address->GPIO_IS_R,Pin_Id);	
-							   set_bit(Port_Address->GPIO_IEV_R,Pin_Id);
-            }
-								
-            else if(PortConfigArr[Pin_count].Interrupt == Pin_IntBothEdges){
-                  clear_bit(Port_Address->GPIO_IS_R,Pin_Id);	
-							    set_bit(Port_Address->GPIO_IBE_R,Pin_Id);
-            }
-						
-						else if(PortConfigArr[Pin_count].Interrupt==Pin_IntLowLevel){
-						  set_bit(Port_Address->GPIO_IS_R,Pin_Id);
-							clear_bit(Port_Address->GPIO_IEV_R,Pin_Id);
-						}
-						else if(PortConfigArr[Pin_count].Interrupt==Pin_IntHighLevel){
-							set_bit(Port_Address->GPIO_IS_R,Pin_Id);
-							set_bit(Port_Address->GPIO_IEV_R,Pin_Id);
-						}
-						
-						set_bit(Port_Address->GPIO_IM_R,Pin_Id);
-        }
-
 				
 				/* set Internal Attachment configuration */
         if(PortConfigArr[Pin_count].Attach == Pin_InternalAttach_PullUp){
@@ -167,7 +127,7 @@ void Port_init(void){
         }
 			}
 				
-			
+			/*locked pin that can't be accessed*/
 			else if(PortConfigArr[Pin_count].LockStatus == Pin_Locked){
 				Port_Address->GPIO_LOCK_R=0x01;
 				clear_bit(SYSCTL_RCGCGPIO_R,Port_Id);

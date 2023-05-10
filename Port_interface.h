@@ -1,15 +1,9 @@
 #ifndef PORT_INTERFACE
 #define PORT_INTERFACE
 
-#include "../../Libraries/STD_Types.h"
+#define Pin_Mode_Dio                   0
+#define Pin_Mode_AIN                   16
 
-
-#define Pin_Mode_Dio                 0
-#define Pin_Mode_AIN                 16
-
-
-#define Pin_Mode_C4_UART4_RX           1
-#define Pin_Mode_C5_UART4_TX           1
 
 #define Pin_Mode_D6_UART2_RX           1
 #define Pin_Mode_D7_UART2_TX           1
@@ -80,15 +74,6 @@
 #define    Pin_Dir_Output 1
 
 
-
-#define    Pin_IntDisable       0
-#define    Pin_IntFallingEdge   1
-#define    Pin_IntRisingEdge    2
-#define    Pin_IntBothEdges     3
-#define    Pin_IntLowLevel      4
-#define    Pin_IntHighLevel     5
-
-
 #define    Pin_Unlocked 0
 #define    Pin_Locked   1
 
@@ -114,7 +99,6 @@ typedef struct
     U8         Pin;
     U8         Dir;
     U8         Mode;
-    U8         Interrupt;
     U8         Attach;
     U8         CurrentDrive;
     U8         LockStatus;

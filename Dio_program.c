@@ -58,7 +58,7 @@ void Dio_Write_Port(U8 PortId,U8 Level){
 			break;
    }
 }
-U8 Dio_ReadPin(U8 PinId){
+U8 Dio_Read_Pin(U8 PinId){
 	
 U8 portid = PinId / 8;
 U8 Pin = PinId % 8;
