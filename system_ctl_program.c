@@ -14,12 +14,14 @@ void system_ctl(S32 distance){
 		Buzzer(buzzer_pin,buzzer_on);
 				
 	}
+	
 	else if(distance<=5&&distance>0)
 	{
 		led(yellow,on);
 		LCD_clear();
 		LCD_write_string_pos("you are close",0,0);
 	}
+	
 	else if(distance>=5){
 	
 		led(red,on);
