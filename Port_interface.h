@@ -104,17 +104,6 @@ typedef struct
     U8         LockStatus;
 }Port_ConfigType;
 
-/******************************************************************************
-* \Syntax          : void Port_init(void)                                    
-* \Description     : Initialize Channels direction, GPIO Mode, GPIO interrupts , current
-                     strength and unlock channels                                
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Non-Reentrant                                             
-* \Parameters (in) : None                     
-* \Parameters (out): None                                                      
-* \Return value:   : None
-*******************************************************************************/
 void Port_init(void);
 
 #endif

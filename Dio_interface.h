@@ -70,68 +70,9 @@
 
 
 
-
-/******************************************************************************
-* \Syntax          : void Dio_Write_Pin(U8 ChannelId,U8 Level)                                     
-* \Description     : Write high or low on the required pin(channel)                                
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Reentrant                                             
-* \Parameters (in) : channel id and channel level                     
-* \Parameters (out): None                                                      
-* \Return value:   : None
-*******************************************************************************/
 void Dio_Write_Pin(U8 ChannelId,U8 Level);
-/******************************************************************************
-* \Syntax          : void Dio_WritePort(U8 PortId,U8 Level)                                     
-* \Description     : Write  the level value on the entire port                              
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Reentrant                                             
-* \Parameters (in) : Port id and Port level                     
-* \Parameters (out): None                                                      
-* \Return value:   : None
-*******************************************************************************/
 void Dio_Write_Port(U8 PortId,U8 Level);
-
-/******************************************************************************
-* \Syntax          : U8 Dio_ReadChannel(U8 ChannelId)                                     
-* \Description     : Read the value of the required pin(channel) and return it                             
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Reentrant                                             
-* \Parameters (in) : channel id                     
-* \Parameters (out): channel level                                                      
-* \Return value:   : channel level 
-*******************************************************************************/
 U8 Dio_Read_Pin(U8 ChannelId);
-
-
-/******************************************************************************
-* \Syntax          : U8 Dio_ReadPort(U8 PortId)                                     
-* \Description     : Read the value of the entire and return it                             
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Reentrant                                             
-* \Parameters (in) : Port id                     
-* \Parameters (out): Port level                                                      
-* \Return value:   : Port level 
-*******************************************************************************/
-U16 Dio_Read_Port(U8 PortId);
-
-
-/******************************************************************************
-* \Syntax          : U16 Dio_FlipChannel(U8 ChannelId)                                     
-* \Description     : change the value of the required pin(channel) from high to
-                     low or vice versa and return the value after this change
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Non-Reentrant                                             
-* \Parameters (in) : channel id                     
-* \Parameters (out): channel level                                                      
-* \Return value:   : channel level 
-*******************************************************************************/
-U8 Dio_Flip_Pin(U8 ChannelId);
 
 
 
